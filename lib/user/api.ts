@@ -17,9 +17,9 @@ export async function getSupabaseUser() {
 export async function getUserProfile(): Promise<UserProfile | null> {
   if (!isSupabaseEnabled) {
     return {
-      id: "guest",
-      email: "guest@zola.chat",
-      display_name: "Guest",
+      id: "maclean",
+      email: "maclean@limitless.ai",
+      display_name: "Maclean",
       profile_image: "",
       anonymous: true,
       created_at: "",

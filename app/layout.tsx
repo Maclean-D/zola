@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { Toaster } from "@/components/ui/sonner"
@@ -14,16 +13,6 @@ import { LayoutClient } from "./layout-client"
 import { ChatSessionProvider } from "./providers/chat-session-provider"
 import { UserPreferencesProvider } from "./providers/user-preferences-provider"
 import { UserProvider } from "./providers/user-provider"
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
 
 export const metadata: Metadata = {
   title: APP_NAME,
@@ -47,9 +36,10 @@ export default async function RootLayout({
           data-website-id="42e5b68c-5478-41a6-bc68-088d029cee52"
         />
       ) : null}
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/hye7rmx.css" />
+      </head>
+      <body className="font-greycliff antialiased">
         <LayoutClient />
         <UserProvider initialUser={userProfile}>
           <ChatsProvider userId={userProfile?.id}>

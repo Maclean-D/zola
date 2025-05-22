@@ -9,10 +9,14 @@ import Xai from "@/components/icons/xai"
 import {
   BookOpenText,
   Brain,
+  Calendar,
+  Clipboard,
+  Clock,
   Code,
   Lightbulb,
   Notepad,
   PaintBrush,
+  QuestionMark,
   Sparkle,
 } from "@phosphor-icons/react/dist/ssr"
 import { openproviders, OpenProvidersOptions } from "./openproviders"
@@ -80,7 +84,7 @@ export const MODELS_FREE = [
     creator: "mistral",
     api_sdk: openproviders("pixtral-large-latest"),
     description:
-      "Mistral’s flagship model. Great for reasoning, writing, and advanced tasks.",
+      "Mistral's flagship model. Great for reasoning, writing, and advanced tasks.",
     icon: Mistral,
   },
   {
@@ -143,7 +147,7 @@ export const MODELS_PRO = [
     creator: "openai",
     api_sdk: openproviders("gpt-4.1"),
     description:
-      "OpenAI’s most powerful model. Excellent at coding, writing, and complex tasks.",
+      "OpenAI's most powerful model. Excellent at coding, writing, and complex tasks.",
     icon: OpenAI,
   },
   {
@@ -239,7 +243,7 @@ export const MODELS_PRO = [
     creator: "anthropic",
     api_sdk: openproviders("claude-3-7-sonnet-20250219"),
     description:
-      "Anthropic’s most intelligent model. Excels at step-by-step reasoning and complex tasks.",
+      "Anthropic's most intelligent model. Excels at step-by-step reasoning and complex tasks.",
     icon: Claude,
   },
   {
@@ -271,7 +275,7 @@ export const MODELS_PRO = [
     creator: "anthropic",
     api_sdk: openproviders("claude-3-opus-20240229"),
     description:
-      "Anthropic’s most powerful model for highly complex reasoning and generation tasks.",
+      "Anthropic's most powerful model for highly complex reasoning and generation tasks.",
     icon: Claude,
   },
   {
@@ -393,99 +397,75 @@ export const PROVIDERS = [
 
 export const MODEL_DEFAULT = "gpt-4.1-nano"
 
-export const APP_NAME = "Zola"
+export const APP_NAME = "Limitless"
 export const APP_DOMAIN = "https://zola.chat"
 export const APP_DESCRIPTION =
   "Zola is a free, open-source AI chat app with multi-model support."
 
 export const SUGGESTIONS = [
   {
+    label: "Prep",
+    highlight: "Prep me",
+    prompt: `Prep me`,
+    items: [
+      "Prep me for my date tonight",
+      "Prep me to give feedback to my teammate tomorrow",
+      "Prep me for my product demo next week",
+      "Prep me to negotiate my rent with my landlord",
+    ],
+    icon: Calendar,
+  },
+  {
     label: "Summary",
     highlight: "Summarize",
     prompt: `Summarize`,
     items: [
-      "Summarize the French Revolution",
-      "Summarize the plot of Inception",
-      "Summarize World War II in 5 sentences",
-      "Summarize the benefits of meditation",
+      "Summarize my last 3 meetings into bullet points",
+      "Summarize today's conversations into a journal entry",
+      "Summarize the podcast I listened to this morning",
+      "Summarize Dan's key points from lunch",
     ],
     icon: Notepad,
   },
   {
-    label: "Code",
-    highlight: "Help me",
-    prompt: `Help me`,
+    label: "Memory",
+    highlight: "What did",
+    prompt: `What did`,
     items: [
-      "Help me write a function to reverse a string in JavaScript",
-      "Help me create a responsive navbar in HTML/CSS",
-      "Help me write a SQL query to find duplicate emails",
-      "Help me convert this Python function to JavaScript",
+      "What did Sam promise about the deadline?",
+      "What did I agree to bring to book club?",
+      "What did we decide about the new logo?",
+      "What did the doctor say about my next appointment?",
     ],
-    icon: Code,
+    icon: Clock,
   },
   {
-    label: "Design",
-    highlight: "Design",
-    prompt: `Design`,
+    label: "Improve myself",
+    highlight: "How can I",
+    prompt: `How can I`,
     items: [
-      "Design a color palette for a tech blog",
-      "Design a UX checklist for mobile apps",
-      "Design 5 great font pairings for a landing page",
-      "Design better CTAs with useful tips",
-    ],
-    icon: PaintBrush,
-  },
-  {
-    label: "Research",
-    highlight: "Research",
-    prompt: `Research`,
-    items: [
-      "Research the pros and cons of remote work",
-      "Research the differences between Apple Vision Pro and Meta Quest",
-      "Research best practices for password security",
-      "Research the latest trends in renewable energy",
-    ],
-    icon: BookOpenText,
-  },
-  {
-    label: "Get inspired",
-    highlight: "Inspire me",
-    prompt: `Inspire me`,
-    items: [
-      "Inspire me with a beautiful quote about creativity",
-      "Inspire me with a writing prompt about solitude",
-      "Inspire me with a poetic way to start a newsletter",
-      "Inspire me by describing a peaceful morning in nature",
+      "How can I be a better listener in meetings",
+      "How can I handle disagreements more calmly",
+      "How can I make my teammates feel appreciated",
+      "How can I improve my storytelling skills",
     ],
     icon: Sparkle,
   },
   {
-    label: "Think deeply",
-    highlight: "Reflect on",
-    prompt: `Reflect on`,
+    label: "Tasks",
+    highlight: "Make me",
+    prompt: `Make me`,
     items: [
-      "Reflect on why we fear uncertainty",
-      "Reflect on what makes a conversation meaningful",
-      "Reflect on the concept of time in a simple way",
-      "Reflect on what it means to live intentionally",
+      "Make me a to-do list from today's meetings",
+      "Make me a study plan for my math exam",
+      "Make me a grocery list based on this week's meals",
+      "Make me a follow-up email to the recruiter",
     ],
-    icon: Brain,
-  },
-  {
-    label: "Learn gently",
-    highlight: "Explain",
-    prompt: `Explain`,
-    items: [
-      "Explain quantum physics like I'm 10",
-      "Explain stoicism in simple terms",
-      "Explain how a neural network works",
-      "Explain the difference between AI and AGI",
-    ],
-    icon: Lightbulb,
+    icon: Clipboard,
   },
 ]
 
-export const SYSTEM_PROMPT_DEFAULT = `You are Zola, a thoughtful and clear assistant. Your tone is calm, minimal, and human. You write with intention—never too much, never too little. You avoid clichés, speak simply, and offer helpful, grounded answers. When needed, you ask good questions. You don’t try to impress—you aim to clarify. You may use metaphors if they bring clarity, but you stay sharp and sincere. You're here to help the user think clearly and move forward, not to overwhelm or overperform.`
+export const SYSTEM_PROMPT_DEFAULT = `You are Zola, a thoughtful and clear assistant. Your tone is calm, minimal, and human. You write with intention—never too much, never too little. You avoid clichés, speak simply, and offer helpful, grounded answers. When needed, you ask good questions. You don't try to impress—you aim to clarify. You may use metaphors if they bring clarity, but you stay sharp and sincere. You're here to help the user think clearly and move forward, not to overwhelm or overperform.`
 
 export const MESSAGE_MAX_LENGTH = 4000
 

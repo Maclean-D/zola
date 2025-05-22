@@ -333,6 +333,9 @@ export function Chat() {
       className={cn(
         "@container/main relative flex h-full flex-col items-center justify-end md:justify-center"
       )}
+      style={{
+        backgroundImage: "linear-gradient(0deg, #fff 6.97%, #fff0 63.02%), linear-gradient(265deg, #ffffffcf 1.13%, #fff0 29.1%), linear-gradient(270deg, #e4fffc40 6.18%, #c1cfff26 62.33%, #cf26de0d 116.18%)"
+      }}
     >
       <DialogAuth open={hasDialogAuth} setOpen={setHasDialogAuth} />
       <AnimatePresence initial={false} mode="popLayout">
@@ -351,8 +354,8 @@ export function Chat() {
               },
             }}
           >
-            <h1 className="mb-6 text-3xl font-medium tracking-tight">
-              What's on your mind?
+            <h1 className="mb-6 text-3xl font-medium tracking-tight px-4 text-center">
+              Ask about anything you've said or heard
             </h1>
           </motion.div>
         ) : (
