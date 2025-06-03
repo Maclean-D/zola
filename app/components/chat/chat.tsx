@@ -26,6 +26,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { useChatHandlers } from "./use-chat-handlers"
 import { useChatUtils } from "./use-chat-utils"
 import { useFileUpload } from "./use-file-upload"
+import { Calendar, Lightbulb } from "@phosphor-icons/react"
 
 const FeedbackWidget = dynamic(
   () => import("./feedback-widget").then((mod) => mod.FeedbackWidget),
@@ -342,7 +343,7 @@ export function Chat() {
         {!chatId && messages.length === 0 ? (
           <motion.div
             key="onboarding"
-            className="absolute bottom-[60%] mx-auto max-w-[50rem] md:relative md:bottom-auto"
+            className="flex h-full flex-col items-center justify-center px-4 pb-0 pt-20 md:relative md:bottom-auto md:h-auto md:pb-0 md:pt-0 md:max-w-[50rem] md:mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -354,9 +355,37 @@ export function Chat() {
               },
             }}
           >
-            <h1 className="mb-6 text-3xl font-medium tracking-tight px-4 text-center">
+            <h1 className="mb-6 text-3xl font-medium tracking-tight text-center">
               Ask about anything you've said or heard
             </h1>
+            
+            <div className="w-full flex flex-col md:flex-row md:justify-center md:space-x-4 space-y-4 md:space-y-0 md:mb-12">
+              <div className="bg-white rounded-xl p-4 shadow-sm flex justify-between items-center md:w-60">
+                <div className="flex items-center gap-3">
+                  <div className="text-gray-700">
+                    <Calendar size={20} weight="bold" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-medium">Yesterday's Summary</h2>
+                    <p className="text-gray-500 text-sm">Tap to review your day</p>
+                  </div>
+                </div>
+                <div className="text-xl text-gray-400">›</div>
+              </div>
+              
+              <div className="bg-white rounded-xl p-4 shadow-sm flex justify-between items-center md:w-60">
+                <div className="flex items-center gap-3">
+                  <div className="text-gray-700">
+                    <Lightbulb size={20} weight="bold" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-medium">Ways to Improve</h2>
+                    <p className="text-gray-500 text-sm">Tap for suggestions</p>
+                  </div>
+                </div>
+                <div className="text-xl text-gray-400">›</div>
+              </div>
+            </div>
           </motion.div>
         ) : (
           <Conversation
